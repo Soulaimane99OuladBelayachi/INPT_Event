@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css" />
+    	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+    	<title>Inpt Events - Se Connecter</title>
+	</h:head>
+	<h:body style="background: linear-gradient(to top right, #00a1ff 0%, #00ff8f 100%);background-position: center center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;height:100%;">
+
+		<br/><br/><br/><br/><br/><br/>
+		<div class="card" style="background-color:white;margin:auto;width:500px;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);border-radius:50px;">
+			<center>
+			    <h:form>
+			    	<br/><br/><br/>
+			        <h2 class="p-mt-0" style="color: blue; font-family: 'Great Vibes', cursive; font-size: 70px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px black;">Se Connecter</h2>
+			        <h:panelGrid columns="3" cellpadding="7">
+			            <p:outputLabel for="name" value="Email"/>
+			            <p:inputText id="name" value="#{connectionBean.email}" style="width: 310px;border-radius:90px;"/>
+			            <br></br><br></br>
+			            <p:outputLabel  value="Password"/>
+			            <p:password id="toggle" value="#{connectionBean.pass}"  toggleMask="true" redisplay="true" style="width: 310px;border-radius:90px;"/>
+			        </h:panelGrid>
+			        <br/><br/>
+			        <p:commandButton  value="Se Connecter" action="#{connectionBean.logIn()}" styleClass="rounded-button" style="width:150px;height:70px;border-radius:100px;" /><br/><br/>  	
+			    </h:form>
+			    <br/><br/>
+			    <h:form>
+					    <p:commandButton value="Retour à la page d'acceuil" action="acceuil" styleClass="ui-button-flat" />
+				</h:form>
+				<h:messages globalsOnly="true" />
+				<br/><br/><br/><br/>
+			   
+			</center>   
+		</div>		
+	</h:body>
+</html>

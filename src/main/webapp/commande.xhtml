@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css" />
+    	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+    	<title>Inpt Events - Commande</title>
+	</h:head>
+	<h:body style="background: linear-gradient(to top right, #00a1ff 0%, #00ff8f 100%);background-position: center center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;height:100%;">
+	
+		<br/><br/><br/><br/><br/><br/>
+		<center>
+		<div class="card" style="background-color:white;margin:auto;width:1500px;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);border-radius:50px;display:inline-block;">
+			<center>
+			    <h:form>
+			    	<br/><br/><br/>
+			        <h2 class="p-mt-0" style="color: blue; font-family: 'Great Vibes', cursive; font-size: 70px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px black;">Customisez votre évenement</h2>
+			        <br></br><br></br>
+			        <h2 style="position:absolute;left:300px;">Votre information:</h2>
+			        <br></br><br></br><br></br><br></br>
+			        <div class="p-grid p-formgrid ui-fluid">		            	
+			            	<div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+			            		<p:outputLabel  value="Prenom : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+			            		<p:outputLabel  value="#{connectionBean.prenom}" style="font-style: italic;font-family: Georgia, serif;font-size:20px;"/>		            		     
+			            	</div>
+			            	<div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+			            		<p:outputLabel  value="Nom : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+			            		<p:outputLabel  value="#{connectionBean.nom}" style="font-style: italic;font-family: Georgia, serif;font-size:20px;"/>		            
+			            	</div>	
+			            	<div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+			            		<p:outputLabel  value="Telephone : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+			            		<p:outputLabel  value="#{connectionBean.telephone}" style="font-style: italic;font-family: Georgia, serif;font-size:20px;"/>		
+			            	</div>                
+		            	 </div><br />
+		            	 <div class="p-grid p-formgrid ui-fluid">		            	
+			            	<div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+			            		<p:outputLabel  value="Addresse : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+			            		<p:outputLabel  value="#{connectionBean.addresse}" style="font-style: italic;font-family: Georgia, serif;font-size:20px;"/>		            	          
+			            	</div>
+			            	<div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+			            		<p:outputLabel  value="Ville : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+			            		<p:outputLabel  value="#{connectionBean.ville}" style="font-style: italic;font-family: Georgia, serif;font-size:20px;"/>   
+			            	</div>	
+			            	<div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+			            		<p:outputLabel  value="Email : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+			            		<p:outputLabel  value="#{connectionBean.email}" style="font-style: italic;font-family: Georgia, serif;font-size:20px;"/>		
+			            	</div>                
+		            </div>
+		            <br></br><br></br>
+		            <h2 style="position:absolute;left:300px;">Votre évenement:</h2>
+		            <br></br><br></br><br></br>
+			        <h:panelGrid columns="6" cellpadding="20">
+			            <p:outputLabel  value="Date de l'évenement : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+			            <p:inputText  value="#{connectionBean.eventDate}" placeholder="JJ/MM/AAAA" style="border-radius:100px;"/>
+			            <p:outputLabel  value="Type de l'évenement : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+			            <p:selectOneMenu value="#{connectionBean.eventType}" required="true"  style="border-radius:100px;">
+		                    <f:selectItem itemLabel="Type d'évenement----" itemValue="" noSelectionOption="true"/>
+		                    <f:selectItem itemLabel="Marriage" itemValue="Marriage"/>
+		                    <f:selectItem itemLabel="Anniversaire" itemValue="Anniversaire"/>
+		                    <f:selectItem itemLabel="Réunion" itemValue="Réunion"/>
+		                    <f:selectItem itemLabel="Conference" itemValue="Conference"/>
+		                </p:selectOneMenu>
+			            
+			            <p:outputLabel  value="Nombre d'invités : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+			            <p:spinner  value="#{connectionBean.invites}" min="0" max="500" style="border-radius:100px;"/>
+			        </h:panelGrid>
+			        <br></br><br></br>
+		            <h2 style="position:absolute;left:300px;">Votre lieu d'évenement:</h2>
+		            <br></br><br></br>
+		            <br></br><br></br><br></br>
+			        <h:panelGrid columns="2" cellpadding="20">
+			            <p:outputLabel  value="Lieu de l'évenement : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+				        <p:selectOneRadio id="console" value="#{connectionBean.eventPlace}"  unselectable="true">
+					            <f:selectItem itemLabel="Maison" itemValue="Maison"/>
+					            <f:selectItem itemLabel="Salle de marriage" itemValue="Salle de marriage"/>
+					            <f:selectItem itemLabel="Hôtel" itemValue="Hôtel"/>
+					            <f:selectItem itemLabel="Salle de conférence" itemValue="Salle de conférence"/>
+					     </p:selectOneRadio>
+			        </h:panelGrid>
+			        <br></br><br></br>
+			        <h2 style="position:absolute;left:300px;">Vos repas:</h2>
+			        <br></br><br></br><br></br>
+			        <h:panelGrid columns="6" cellpadding="20">
+			           <p:outputLabel  value="Buffet : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+			           <p:selectOneMenu value="#{connectionBean.eventBuffet}" required="true"  style="border-radius:100px;">
+		                    <f:selectItem itemLabel="Buffet----" itemValue="" noSelectionOption="true"/>
+		                    <f:selectItem itemLabel="Avec" itemValue="Avec"/>
+		                    <f:selectItem itemLabel="Sans" itemValue="Sans"/>		       
+		                </p:selectOneMenu>
+		                <p:outputLabel  value="Menu : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+			           <p:selectOneMenu value="#{connectionBean.eventMenu}" required="true"  style="border-radius:100px;">
+		                    <f:selectItem itemLabel="Menu----" itemValue="" noSelectionOption="true"/>
+		                    <f:selectItem itemLabel="Maroccain" itemValue="Maroccain"/>
+		                    <f:selectItem itemLabel="Asiatique" itemValue="Asiatique"/>	
+		                    <f:selectItem itemLabel="Européen" itemValue="Européen"/>		       
+		                </p:selectOneMenu>
+		                <p:outputLabel  value="Dessert : " style="font-family: 'Times New Roman',Times,serif;font-size:20px;"></p:outputLabel>
+			           <p:selectOneMenu value="#{connectionBean.eventDessert}" required="true"  style="border-radius:100px;">
+		                    <f:selectItem itemLabel="Dessert----" itemValue="" noSelectionOption="true"/>
+		                    <f:selectItem itemLabel="Fruits" itemValue="Fruits"/>
+		                    <f:selectItem itemLabel="Gateâu" itemValue="Gateâu"/>	
+		                    <f:selectItem itemLabel="Glace" itemValue="Glace"/>		       
+		                </p:selectOneMenu>
+			        </h:panelGrid>
+			       
+			        <br/><br/>
+			        <p:commandButton  value="Demmander un devis" action="#{connectionBean.sendCommand()}" styleClass="rounded-button" style="width:200px;height:70px;border-radius:100px;" /><br /><br />
+			      	
+			    </h:form>
+			    <br/><br/>
+				    <h:form>
+						    <p:commandButton value="Retour à la page d'acceuil" action="acceuil" styleClass="ui-button-flat" />
+					</h:form>
+					<br/><br/>
+			   
+			</center>   
+		</div>	
+		<br/><br/><br/><br/><br/><br/>
+		</center>		
+	</h:body>
+</html>

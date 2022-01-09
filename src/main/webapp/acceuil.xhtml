@@ -1,0 +1,620 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+    	<h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css" />
+    	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>   	
+    	<style type="text/css">
+    		
+    		html{
+    			scroll-behavior:smooth;
+    		}
+    		
+    		hr{
+    			width : 40%;
+    		}
+    		.imagebox a {
+		        margin-left: 10px;
+		    }
+		    *, *:before, *:after {
+			  box-sizing: border-box;
+			}
+			
+			html {
+			  font-size: 100%;
+			}
+			
+			body {
+			  font-family: acumin-pro, system-ui, sans-serif;
+			  margin: 0;
+			  display: grid;
+			  grid-template-rows: auto 1fr auto;
+			  font-size: 14px;
+			  background-color: #f4f4f4;
+			  align-items: start;
+			  min-height: 100vh;
+			}
+			
+			#footer {
+			  display: flex;
+			  flex-flow: row wrap;
+			  padding: 30px 30px 20px 30px;
+			  color: #2f2f2f;
+			  background-color: #fff;
+			  border-top: 1px solid #e5e5e5;
+			}
+			
+			#footer > * {
+			  flex:  1 100%;
+			}
+			
+			#footer__addr {
+			  margin-right: 1.25em;
+			  margin-bottom: 2em;
+			}
+			
+			.footer__logo {
+			  font-family: 'Pacifico', cursive;
+			  font-weight: 400;
+			  text-transform: lowercase;
+			  font-size: 3rem;
+			}
+			
+			.footer__addr h2 {
+			  margin-top: 1.3em;
+			  font-size: 15px;
+			  font-weight: 400;
+			}
+			
+			.nav__title {
+			  font-weight: 400;
+			  font-size: 15px;
+			}
+			
+			.footer address {
+			  font-style: normal;
+			  color: #999;
+			}
+			
+			.footer__btn {
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  height: 36px;
+			  max-width: max-content;
+			  background-color: rgb(33, 33, 33, 0.07);
+			  border-radius: 100px;
+			  color: #2f2f2f;
+			  line-height: 0;
+			  margin: 0.6em 0;
+			  font-size: 1rem;
+			  padding: 0 1.3em;
+			}
+			
+			#footer ul {
+			  list-style: none;
+			  padding-left: 0;
+			}
+			
+			#footer li {
+			  line-height: 2em;
+			}
+			
+			#footer a {
+			  text-decoration: none;
+			}
+			
+			.footer__nav {
+			  display: flex;
+			  flex-flow: row wrap;
+			}
+			
+			.footer__nav > * {
+			  flex: 1 50%;
+			  margin-right: 1.25em;
+			}
+			
+			.nav__ul a {
+			  color: #999;
+			}
+			
+			.nav__ul--extra {
+			  column-count: 2;
+			  column-gap: 1.25em;
+			}
+			
+			.legal {
+			  display: flex;
+			  flex-wrap: wrap;
+			  color: #999;
+			  
+			}
+			  
+			.legal__links {
+			  display: flex;
+			  align-items: center;
+			}
+			
+			.heart {
+			  color: #2f2f2f;
+			}
+			
+			@media screen and (min-width: 24.375em) {
+			  .legal .legal__links {
+			    margin-left: auto;
+			  }
+			}
+			
+			@media screen and (min-width: 40.375em) {
+			  .footer__nav > * {
+			    flex: 1;
+			  }
+			  
+			  .nav__item--extra {
+			    flex-grow: 2;
+			  }
+			  
+			  .footer__addr {
+			    flex: 1 0px;
+			  }
+			  
+			  .footer__nav {
+			    flex: 2 0px;
+			  }
+			}
+			
+			.site-footer .social-icons
+			{
+			  text-align:right
+			}
+			.site-footer .social-icons a
+			{
+			  width:40px;
+			  height:40px;
+			  line-height:40px;
+			  margin-left:6px;
+			  margin-right:0;
+			  border-radius:100%;
+			  background-color:#33353d
+			}
+			.copyright-text
+			{
+			  margin:0
+			}
+			@media (max-width:991px)
+			{
+			  .site-footer [class^=col-]
+			  {
+			    margin-bottom:30px
+			  }
+			}
+			@media (max-width:767px)
+			{
+			  .site-footer
+			  {
+			    padding-bottom:0
+			  }
+			  .site-footer .copyright-text,.site-footer .social-icons
+			  {
+			    text-align:center
+			  }
+			}
+			.social-icons
+			{
+			  padding-left:0;
+			  margin-bottom:0;
+			  list-style:none
+			}
+			.social-icons li
+			{
+			  display:inline-block;
+			  margin-bottom:4px
+			}
+			.social-icons li.title
+			{
+			  margin-right:15px;
+			  text-transform:uppercase;
+			  color:#96a2b2;
+			  font-weight:700;
+			  font-size:13px
+			}
+			.social-icons a{
+			  background-color:#eceeef;
+			  color:#818a91;
+			  font-size:16px;
+			  display:inline-block;
+			  line-height:44px;
+			  width:44px;
+			  height:44px;
+			  text-align:center;
+			  margin-right:8px;
+			  border-radius:100%;
+			  -webkit-transition:all .2s linear;
+			  -o-transition:all .2s linear;
+			  transition:all .2s linear
+			}
+			.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+			{
+			  color:#fff;
+			  background-color:#29aafe
+			}
+			.social-icons.size-sm a
+			{
+			  line-height:34px;
+			  height:34px;
+			  width:34px;
+			  font-size:14px
+			}
+			.social-icons a.facebook:hover
+			{
+			  background-color:#3b5998
+			}
+			.social-icons a.twitter:hover
+			{
+			  background-color:#00aced
+			}
+			.social-icons a.linkedin:hover
+			{
+			  background-color:#007bb6
+			}
+			.social-icons a.dribbble:hover
+			{
+			  background-color:#ea4c89
+			}
+			@media (max-width:767px)
+			{
+			  .social-icons li.title
+			  {
+			    display:block;
+			    margin-right:0;
+			    font-weight:600
+			  }
+			}
+			
+			
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				font-family: 'Montserrat', sans-serif;
+				line-height: 1.6;
+				margin: 0;
+				min-height: 100vh;
+			}
+			ul {
+			  margin: 0;
+			  padding: 0;
+			  list-style: none;
+			}
+			
+			
+			h2,
+			h3,
+			a {
+				color: #34495e;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			
+			
+			.logo {
+				margin: 0;
+				font-size: 1.45em;
+			}
+			
+			.main-nav {
+				margin-top: 5px;
+			
+			}
+			.logo a,
+			.main-nav a {
+				padding: 10px 15px;
+				
+				text-align: center;
+				display: block;
+			}
+			
+			.main-nav a {
+				color: #34495e;
+				font-size: .99em;
+			}
+			
+			.main-nav a:hover {
+				color: #718daa;
+			}
+			
+			
+			
+			.header {
+				padding-top: .5em;
+				padding-bottom: .5em;
+				border: 1px solid #a2a2a2;
+				background-color: #f4f4f4;
+				-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+				-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+				box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+			}
+
+			@media (min-width: 769px) {
+				.header,
+				.main-nav {
+					display: flex;
+				}
+				.header {
+					flex-direction: column;
+					align-items: center;
+			    	.header{
+					width: 80%;
+					margin: 0 auto;
+					max-width: 1150px;
+				}
+				}
+			
+			}
+			
+			@media (min-width: 1025px) {
+				.header {
+					flex-direction: row;
+					justify-content: space-between;
+				}
+			
+			}
+	
+    	</style>
+    	<title>Inpt Events - Acceuil</title>
+   
+    </h:head>
+
+    <h:body style="background: linear-gradient(to top right, #00a1ff 0%, #00ff8f 100%);background-position: center center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;height:100%;">
+    	<div class="card">
+		    	<div class="header" style="font-size:15px;position:fixed;width:100%;z-index:99;">
+					<h1 class="footer__logo" style="font-size:25px;margin-left:30px;">Inpt Event</h1>
+			      <ul class="main-nav">
+			          <li><a href="#">Acceuil</a></li>
+			          <li><a href="#Activities">Activités</a></li>
+			          <li><a href="#Place">Places</a></li>
+			          <li><a href="#Menu">Menus</a></li>
+			          <li><a href="#Dessert">Dessert</a></li>
+			          <li><a href="#footer">A propos</a></li>
+			      </ul>
+				</div> 
+		    
+		</div>
+		<br/><br/><br/><br/>
+		<div class="card" >
+			<h:graphicImage url="images/welcome.png" style="width:40%;position:relative; left:500px; top:10px;"/>
+		</div>
+		<div class="card" >
+			<h:graphicImage url="images/logo.png" style="width:40%;border-radius:400px;box-shadow: 60px -16px teal;position:relative; left:850px; top:50px;"/>
+		</div>
+		<div class="card" style="position:relative; right:600px; bottom:280px;" >
+			<h:form>
+				<p:commandButton  value="S'inscrire" action="signup" styleClass="rounded-button" style ="position:relative; left:750px; top:100px;width:200px;height:100px;border-radius:100px;background-color:black;box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.08), 0px 22px 30px 2px rgba(0, 0, 0, 0.15), 0px 8px 10px rgba(0, 0, 0, 0.15);font-family: 'Brush Script MT', cursive;font-size:45px;"/>
+				<p:commandButton  value="Se Connecter" action="login" styleClass="rounded-button" style ="position:relative; left:800px; top:100px;width:250px;height:100px;border-radius:100px;box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.08), 0px 22px 30px 2px rgba(0, 0, 0, 0.15), 0px 8px 10px rgba(0, 0, 0, 0.15);font-family: 'Brush Script MT', cursive;font-size:40px;"/>
+			</h:form>
+			
+				
+			
+		</div>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<hr/>
+		
+		<center >
+		
+		
+			<div id="Activities">
+			<br/><br/><br/>
+			<h2 style="color:white;font-family: 'Brush Script MT', cursive;font-size:60px;">Nos Activités</h2>
+			<p:card style="width: 50em;height:45em;position:relative; left:25em;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);border-radius:50px;">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/event1.jpg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Conférence
+			    </f:facet>
+			    <p>Cher client, vous souhaiterez organiser  dans un date précis  une conférence sur votre thème, au sein de votre établissement ou bien votre entreprise  . Vous trouverez, ci-joint après votre demande, un plan détaillé de votre conférence à laquelle vous aimeriez , bien sûr.</p>
+			</p:card>
+			<p:card style="width: 50em;height:45em;position:relative; right:25em;;border-radius:50px;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/event2.jpg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Marriage
+			    </f:facet>
+			    <p>Notre mariage consiste en une cérémonie nuptiale, célébrée selon des rites et des coutumes ancestrales, dans le respect de vos  traditions . Comme notre pays  qui est un pays de traditions musulmanes, la célébration du mariage respecte également les préceptes de l’Islam. Ainsi, la jeune fiancée qui a su se préserver est honorée tout au long des différents rites nuptiaux qui peuvent se dérouler sur 3 jours voire une semaine, en fonction de la position sociale et de la richesse des familles dont sont issus les jeunes mariés.</p>
+			
+			</p:card>
+			<p:card style="width: 50em;height:45em;position:relative; left:25em;;border-radius:50px;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/event3.jpg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Anniversaire
+			    </f:facet>
+			    <p>Un anniversaire est la commémoration d'un événement célébrée au jour anniversaire de la date où il a eu lieu. (Par exemple une naissance).Il est fréquent, dans de nombreuses cultures, de célébrer l'anniversaire de la naissance de ses proches (parents, amis) en organisant une fête et en offrant des cadeaux à la personne concernée. C'est également l'occasion pour découvrir notre  site de les choyer plus qu'à l'accoutumée, de réaliser certains de leurs souhaits...</p>
+			
+			</p:card>
+			<p:card style="width: 50em;height:45em;position:relative; right:25em;;border-radius:50px;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/event4.jpg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Reunion
+			    </f:facet>
+			    <p>Cher entrepreneurs, Vous avez le plaisir de vous faire votre prochaine réunion de travail qui aura dans un lieu que vous souhaitez (hôtel , université , entreprise) . Au cours de cette réunion, Vous pouvez définir les actions et les moyens à mettre en œuvre pour que Votre projet de puisse rapidement voir le jour.</p>
+			
+			</p:card>
+			</div>
+			
+		</center>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<hr/>
+		
+		<center >
+			<div id="Place">
+			<br/><br/><br/>
+			<h2 style="color:white;font-family: 'Brush Script MT', cursive;font-size:60px;">Nos Places</h2>
+			<p:card style="width: 50em;height:30em;position:relative; left:25em;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);border-radius:50px;">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/maison.jpeg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Maison
+			    </f:facet>
+			    <p></p>
+			</p:card>
+			<p:card style="width: 50em;height:30em;position:relative; right:25em;;border-radius:50px;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/marriage.jpg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Salle de marriage
+			    </f:facet>
+			    <p></p>
+			
+			</p:card>
+			<p:card style="width: 50em;height:30em;position:relative; left:25em;;border-radius:50px;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/hotel.jpeg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Hôtel
+			    </f:facet>
+				<p></p>			
+			</p:card>
+			<p:card style="width: 50em;height:30em;position:relative; right:25em;;border-radius:50px;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/conference.jpeg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Salle de conférence
+			    </f:facet>
+			    <p></p>
+			
+			</p:card>
+			</div>
+			
+		</center>
+		
+		<br></br><br></br><br></br>
+		<hr/>
+		
+		<center >
+			<div id="Menu">
+			<br/><br/><br/>
+			<h2 style="color:white;font-family: 'Brush Script MT', cursive;font-size:60px;">Nos Menus</h2>
+			<p:card style="width: 50em;height:30em;position:relative; left:25em;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);border-radius:50px;">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/CuisineMarocaine.jpg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Marocain
+			    </f:facet>
+			    <p></p>
+			</p:card>
+			<p:card style="width: 50em;height:30em;position:relative; right:25em;;border-radius:50px;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/cuisine-asiatique.jpeg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Asiatique
+			    </f:facet>
+			    <p></p>			
+			</p:card>
+			<p:card style="width: 50em;height:30;position:relative; left:25em;;border-radius:50px;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/euro.webp" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Européenne
+			    </f:facet>
+			    <p></p>
+			
+			</p:card>
+			</div>
+		</center>
+		<br></br><br></br><br></br>
+		<hr/>
+		
+		<center >
+			<div id="Dessert">
+			<br/><br/><br/>
+			<h2 style="color:white;font-family: 'Brush Script MT', cursive;font-size:60px;">Nos Dessert</h2>
+			<p:card style="width: 50em;height:30em;position:relative; right:25em;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);border-radius:50px;">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/fruit.jpeg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Fruits
+			    </f:facet>
+			    <p></p>
+			</p:card>
+			<p:card style="width: 50em;height:30em;position:relative; left:25em;;border-radius:50px;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/gateau.jpeg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Gâteau
+			    </f:facet>
+			    <p></p>			
+			</p:card>
+			<p:card style="width: 50em;height:30em;position:relative; right:25em;;border-radius:50px;box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);">
+			    <f:facet name="header">
+			        	<p:graphicImage value ="images/glace.jpeg" class="nature4" styleClass="p-shadow-4" style="height: 25rem; width: 24.9 rem;border-radius:50px;"/>
+			    </f:facet>
+			    <f:facet name="title">
+			        Glace
+			    </f:facet>
+			    <p></p>
+			
+			</p:card>
+			</div>
+		</center>
+		
+		
+		<br />	<br /><br /><br />
+		<div id="footer">
+		  <div class="footer__addr">
+		    <h1 class="footer__logo">Inpt Event</h1>
+		  </div>
+		  
+		  <div style="display: inline-block;position:relative;bottom:85px;">
+		  	<center>
+			  	<h1 style="font-family: Merriweather;">Projet JEE</h1>
+			  	<h2 style="font-family: Merriweather;">Réalisé par :</h2>
+			  	<h1 style="display: inline-block;margin-right:30px;font-family: 'Permanent Marker', cursive;">Youness Kreit</h1>
+			  	<h1 style="display: inline-block;margin-right:30px;margin-left:30px;font-family: 'Permanent Marker', cursive;">Soulaimane Oulad Belayachi</h1>
+			  	<h1 style="display: inline-block;margin-left:30px;font-family: 'Permanent Marker', cursive;">Radia Elasri</h1>
+		  	</center>
+		  </div>
+		  
+		  
+		 <center>
+			  <div class="col-md-4 col-sm-6 col-xs-12">
+	            <ul class="social-icons">
+	              <li><a class="facebook" href="#"><i class="pi pi-facebook"></i></a></li>
+	              <li><a class="twitter" href="#"><i class="pi pi-twitter"></i></a></li>
+	              <li><a class="dribbble" href="#"><i class="pi pi-github"></i></a></li>
+	              <li><a class="linkedin" href="#"><i class="pi pi-linkedin"></i></a></li>   
+	            </ul>
+	          </div>
+	          <div class="legal">
+			    <p>&copy; 2022 SESNum.</p>
+			  </div>
+	      </center>    
+           
+		</div>
+		
+		
+    </h:body>
+</html>
